@@ -21,7 +21,7 @@ const Homescreen = ( { profileItems, query } ) => {
 	const { completed: profilerCompleted, skipped: profilerSkipped } =
 		profileItems || {};
 	if ( isOnboardingEnabled() && ! profilerCompleted && ! profilerSkipped ) {
-		getHistory().push( getNewPath( {}, `/profiler`, {} ) );
+		getHistory().push( getNewPath( {}, '/store-details', {} ) );
 	}
 
 	return <Layout query={ query } />;
