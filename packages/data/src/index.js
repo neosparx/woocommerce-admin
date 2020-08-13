@@ -34,4 +34,6 @@ export { MAX_PER_PAGE, QUERY_DEFAULTS } from './constants';
 
 export { EXPORT_STORE_NAME } from './export';
 
+export { IMPORT_STORE_NAME } from './import';
+
 export { __experimentalResolveSelect } from './registry';
