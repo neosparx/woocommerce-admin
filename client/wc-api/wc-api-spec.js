@@ -2,7 +2,6 @@
  * Internal dependencies
  */
 import items from './items';
-import imports from './imports';
 
 function createWcApiSpec() {
 	return {
@@ -11,7 +10,6 @@ function createWcApiSpec() {
 			...items.mutations,
 		},
 		selectors: {
-			...imports.selectors,
 			...items.selectors,
 		},
 		operations: {
@@ -21,10 +19,7 @@ function createWcApiSpec() {
 					return [];
 				}
 
-				return [
-					...imports.operations.read( resourceNames ),
-					...items.operations.read( resourceNames ),
-				];
+				return [ ...items.operations.read( resourceNames ) ];
 			},
 			update( resourceNames, data ) {
 				return [ ...items.operations.update( resourceNames, data ) ];
