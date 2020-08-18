@@ -14,13 +14,12 @@ import { getHistory, getNewPath } from '@woocommerce/navigation';
 /**
  * Internal dependencies
  */
-import { isOnboardingEnabled } from '../dashboard/utils';
 import Layout from './layout';
 
 const Homescreen = ( { profileItems, query } ) => {
 	const { completed: profilerCompleted, skipped: profilerSkipped } =
 		profileItems || {};
-	if ( isOnboardingEnabled() && ! profilerCompleted && ! profilerSkipped ) {
+	if ( ! profilerCompleted && ! profilerSkipped ) {
 		getHistory().push( getNewPath( {}, `/profiler`, {} ) );
 	}
 
@@ -32,10 +31,6 @@ export default compose(
 		? withOnboardingHydration( getSetting( 'onboarding', {} ).profile )
 		: identity,
 	withSelect( ( select ) => {
-		if ( ! isOnboardingEnabled() ) {
-			return;
-		}
-
 		const { getProfileItems } = select( ONBOARDING_STORE_NAME );
 		const profileItems = getProfileItems();
 
