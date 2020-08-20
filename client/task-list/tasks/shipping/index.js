@@ -21,6 +21,7 @@ import { getCountryCode } from '../../../dashboard/utils';
 import StoreLocation from '../steps/location';
 import ShippingRates from './rates';
 import { recordEvent } from '../../../lib/tracks';
+import { createNoticesFromResponse } from '../../../lib/notices';
 
 class Shipping extends Component {
 	constructor( props ) {
@@ -265,6 +266,7 @@ class Shipping extends Component {
 							getHistory().push( getNewPath( {}, '/', {} ) );
 						} }
 						pluginSlugs={ pluginsToActivate }
+						onResponse={ createNoticesFromResponse }
 						{ ...this.props }
 					/>
 				),

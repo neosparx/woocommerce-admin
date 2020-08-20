@@ -1,6 +1,7 @@
 # Unreleased Changes
 
-- Fixed default value for `<Table />` component `onQueryChange` prop.
+-   Fixed default value for `<Table />` component `onQueryChange` prop.
+-   Fixed internal dependencies for `<Plugins />`.
 
 # 5.0.0
 

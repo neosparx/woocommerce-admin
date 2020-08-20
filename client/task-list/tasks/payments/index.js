@@ -26,6 +26,7 @@ import {
  * Internal dependencies
  */
 import { recordEvent } from '../../../lib/tracks';
+import { createNoticesFromResponse } from '../../../lib/notices';
 import { getCountryCode } from '../../../dashboard/utils';
 import withSelect from '../../../wc-api/with-select';
 import { getPaymentMethods } from './methods';
@@ -128,6 +129,7 @@ class Payments extends Component {
 					} }
 					autoInstall
 					pluginSlugs={ currentMethod.plugins }
+					onResponse={ createNoticesFromResponse }
 				/>
 			),
 			isComplete: ! pluginsToInstall.length,
